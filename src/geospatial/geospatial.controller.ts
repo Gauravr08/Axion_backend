@@ -18,6 +18,13 @@ import { Throttle, SkipThrottle } from "@nestjs/throttler";
 import { GeospatialService } from "./geospatial.service";
 import { AnalyzeDto } from "./dto/analyze.dto";
 import { Public } from "../decorators/public.decorator";
+import {
+  OpenRouterError,
+  McpConnectionError,
+  ToolExecutionError,
+  TimeoutError,
+  RateLimitError,
+} from "../errors/app-errors";
 
 @ApiTags("Geospatial Analysis")
 @ApiSecurity("api-key")
@@ -83,7 +90,65 @@ export class GeospatialController {
     } catch (error) {
       this.logger.error(`Analysis failed: ${error.message}`);
 
-      // Don't expose internal errors to client
+      // Handle custom errors with appropriate messages
+      if (error instanceof TimeoutError) {
+        throw new HttpException(
+          {
+            success: false,
+            error: error.message,
+            code: "TIMEOUT",
+          },
+          HttpStatus.REQUEST_TIMEOUT,
+        );
+      }
+
+      if (error instanceof RateLimitError) {
+        throw new HttpException(
+          {
+            success: false,
+            error: error.message,
+            code: "RATE_LIMIT",
+            retryAfter: error.retryAfter,
+          },
+          HttpStatus.TOO_MANY_REQUESTS,
+        );
+      }
+
+      if (error instanceof McpConnectionError) {
+        throw new HttpException(
+          {
+            success: false,
+            error: "Service temporarily unavailable. Please try again later.",
+            code: "MCP_UNAVAILABLE",
+          },
+          HttpStatus.SERVICE_UNAVAILABLE,
+        );
+      }
+
+      if (error instanceof OpenRouterError) {
+        throw new HttpException(
+          {
+            success: false,
+            error: error.message,
+            code: "OPENROUTER_ERROR",
+          },
+          error.getStatus(),
+        );
+      }
+
+      if (error instanceof ToolExecutionError) {
+        throw new HttpException(
+          {
+            success: false,
+            error: "Tool execution failed. Please try a different query.",
+            code: "TOOL_ERROR",
+            tool: error.toolName,
+          },
+          HttpStatus.INTERNAL_SERVER_ERROR,
+        );
+      }
+
+      // Generic error handling
       const isProduction = process.env.NODE_ENV === "production";
       const errorMessage = isProduction
         ? "Analysis failed. Please try again or contact support."
