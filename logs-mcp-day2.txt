@@ -1,0 +1,13 @@
+
+> axion-mcp@1.0.0 dev:sse
+> tsx watch src/mcp/server-sse.ts
+
+[SSE] No API key configured - auth will be disabled
+[SSE] Starting Axion MCP SSE Server...
+[SSE] Port: 3000
+[SSE] Auth required: true
+[SSE] API keys configured: 0
+[SSE] ✅ Server listening on port 3000
+[SSE] ✅ SSE endpoint: http://localhost:3000/sse
+[SSE] ✅ Health check: http://localhost:3000/health
+[SSE] ✅ Tools: axion_data, axion_system, axion_process, axion_export, axion_map, axion_classification, axion_sar2optical

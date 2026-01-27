@@ -3,6 +3,7 @@ import { ConfigModule } from "@nestjs/config";
 import { APP_GUARD } from "@nestjs/core";
 import { ThrottlerModule, ThrottlerGuard } from "@nestjs/throttler";
 import { GeospatialModule } from "./geospatial/geospatial.module";
+import { DatabaseModule } from "./database/database.module";
 import { ApiKeyGuard } from "./guards/api-key.guard";
 import { configValidationSchema } from "./config/configuration";
 
@@ -33,6 +34,7 @@ import { configValidationSchema } from "./config/configuration";
       },
     ]),
 
+    DatabaseModule,
     GeospatialModule,
   ],
   providers: [

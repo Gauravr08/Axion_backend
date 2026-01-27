@@ -8,6 +8,7 @@ import { ConfigService } from "@nestjs/config";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { SSEClientTransport } from "../mcp/lib/sse-client-transport";
+import { DatabaseService } from "../database/database.service";
 import axios, { AxiosInstance } from "axios";
 import axiosRetry from "axios-retry";
 import * as path from "path";
@@ -37,7 +38,10 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
   private readonly ANALYSIS_TIMEOUT = 90000; // 90 seconds
   private readonly MCP_HEALTH_TIMEOUT = 10000; // 10 seconds
 
-  constructor(private configService: ConfigService) {
+  constructor(
+    private configService: ConfigService,
+    private databaseService: DatabaseService,
+  ) {
     this.openRouterApiKey =
       this.configService.get<string>("OPENROUTER_API_KEY");
     this.openRouterModel =
@@ -231,7 +235,14 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
     return this.currentMode;
   }
 
-  async analyzeQuery(query: string) {
+  async analyzeQuery(
+    query: string,
+    metadata?: {
+      apiKeyId?: string;
+      ipAddress?: string;
+      userAgent?: string;
+    },
+  ) {
     const requestId = this.generateRequestId();
     const startTime = Date.now();
 
@@ -244,9 +255,25 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
 
     // Validate MCP connection
     if (!this.mcpConnected) {
-      throw new McpConnectionError(
+      const error = new McpConnectionError(
         "MCP server not connected. Please check configuration.",
       );
+
+      // Track failed request
+      await this.trackUsageAsync({
+        apiKeyId: metadata?.apiKeyId,
+        endpoint: "/api/geospatial/analyze",
+        query,
+        mcpMode: this.currentMode,
+        responseTime: Date.now() - startTime,
+        success: false,
+        errorMessage: error.message,
+        ipAddress: metadata?.ipAddress,
+        userAgent: metadata?.userAgent,
+        requestId,
+      });
+
+      throw error;
     }
 
     // Validate API key
@@ -255,10 +282,30 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
       this.openRouterApiKey === "your_openrouter_api_key_here" ||
       this.openRouterApiKey === "sk-or-v1-your-key-here"
     ) {
-      throw new OpenRouterError(
+      const error = new OpenRouterError(
         "OpenRouter API key not configured. Please set OPENROUTER_API_KEY in .env file",
       );
+
+      // Track failed request
+      await this.trackUsageAsync({
+        apiKeyId: metadata?.apiKeyId,
+        endpoint: "/api/geospatial/analyze",
+        query,
+        mcpMode: this.currentMode,
+        responseTime: Date.now() - startTime,
+        success: false,
+        errorMessage: error.message,
+        ipAddress: metadata?.ipAddress,
+        userAgent: metadata?.userAgent,
+        requestId,
+      });
+
+      throw error;
     }
+
+    let toolUsed: string | undefined;
+    let tokensUsed: number | undefined;
+    let cost: number | undefined;
 
     try {
       // Wrap analysis in timeout
@@ -269,11 +316,44 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
       );
 
       const duration = Date.now() - startTime;
+
+      // Extract metadata from result
+      if (result.tool?.name) {
+        toolUsed = result.tool.name;
+      }
+
+      // Estimate tokens (rough estimate: 1 token ≈ 4 chars)
+      tokensUsed = Math.ceil(
+        (query.length + JSON.stringify(result).length) / 4,
+      );
+
+      // Estimate cost (Grok pricing: ~$0.50 per 1M tokens)
+      cost = (tokensUsed / 1000000) * 0.5;
+
       this.logger.log({
         message: "Analysis completed",
         requestId,
         duration: `${duration}ms`,
         success: true,
+        toolUsed,
+        tokensUsed,
+        cost,
+      });
+
+      // Track successful request (fire-and-forget)
+      await this.trackUsageAsync({
+        apiKeyId: metadata?.apiKeyId,
+        endpoint: "/api/geospatial/analyze",
+        query,
+        mcpMode: this.currentMode,
+        toolUsed,
+        responseTime: duration,
+        success: true,
+        tokensUsed,
+        cost,
+        ipAddress: metadata?.ipAddress,
+        userAgent: metadata?.userAgent,
+        requestId,
       });
 
       return result;
@@ -287,8 +367,47 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
         errorType: error.constructor.name,
       });
 
+      // Track failed request (fire-and-forget)
+      await this.trackUsageAsync({
+        apiKeyId: metadata?.apiKeyId,
+        endpoint: "/api/geospatial/analyze",
+        query,
+        mcpMode: this.currentMode,
+        toolUsed,
+        responseTime: duration,
+        success: false,
+        errorMessage: error.message,
+        ipAddress: metadata?.ipAddress,
+        userAgent: metadata?.userAgent,
+        requestId,
+      });
+
       throw this.handleAnalysisError(error);
     }
+  }
+
+  /**
+   * Track API usage asynchronously (fire-and-forget to not block requests)
+   */
+  private async trackUsageAsync(data: {
+    apiKeyId?: string;
+    endpoint: string;
+    query?: string;
+    mcpMode?: string;
+    toolUsed?: string;
+    responseTime?: number;
+    success: boolean;
+    errorMessage?: string;
+    tokensUsed?: number;
+    cost?: number;
+    ipAddress?: string;
+    userAgent?: string;
+    requestId?: string;
+  }): Promise<void> {
+    // Fire-and-forget: don't await, don't let failures propagate
+    this.databaseService.trackUsage(data).catch((error) => {
+      this.logger.warn(`Failed to track usage: ${error.message}`);
+    });
   }
 
   private async performAnalysis(query: string, requestId: string) {
@@ -408,6 +527,7 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
         return this.formatResponse(
           finalResponse.data.choices[0].message,
           toolResult,
+          toolCall.function.name,
         );
       }
 
@@ -419,6 +539,7 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
         visualizationUrl: null,
         mapUrl: null,
         mcpMode: this.currentMode,
+        tool: undefined,
       };
     } catch (error) {
       throw this.handleAnalysisError(error);
@@ -477,7 +598,7 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
     );
   }
 
-  private formatResponse(message: any, toolResult: any) {
+  private formatResponse(message: any, toolResult: any, toolName?: string) {
     // Extract visualization URL from tool result if present
     let visualizationUrl = null;
     let mapUrl = null;
@@ -524,6 +645,7 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
       visualizationUrl,
       mapUrl,
       mcpMode: this.currentMode,
+      tool: toolName ? { name: toolName } : undefined,
     };
   }
 

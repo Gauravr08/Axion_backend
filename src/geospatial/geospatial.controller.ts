@@ -6,6 +6,8 @@ import {
   HttpException,
   HttpStatus,
   Logger,
+  Req,
+  Query,
 } from "@nestjs/common";
 import {
   ApiTags,
@@ -13,11 +15,14 @@ import {
   ApiResponse,
   ApiBody,
   ApiSecurity,
+  ApiQuery,
 } from "@nestjs/swagger";
 import { Throttle, SkipThrottle } from "@nestjs/throttler";
 import { GeospatialService } from "./geospatial.service";
+import { DatabaseService } from "../database/database.service";
 import { AnalyzeDto } from "./dto/analyze.dto";
 import { Public } from "../decorators/public.decorator";
+import { Request } from "express";
 import {
   OpenRouterError,
   McpConnectionError,
@@ -32,7 +37,10 @@ import {
 export class GeospatialController {
   private readonly logger = new Logger(GeospatialController.name);
 
-  constructor(private readonly geospatialService: GeospatialService) {}
+  constructor(
+    private readonly geospatialService: GeospatialService,
+    private readonly databaseService: DatabaseService,
+  ) {}
 
   @Post("analyze")
   @Throttle({ strict: { limit: 10, ttl: 60000 } }) // 10 requests per minute
@@ -78,13 +86,28 @@ export class GeospatialController {
     description: "Too many requests - rate limit exceeded",
   })
   @ApiResponse({ status: 500, description: "Internal server error" })
-  async analyze(@Body() analyzeDto: AnalyzeDto) {
+  async analyze(
+    @Body() analyzeDto: AnalyzeDto,
+    @Req() req: Request & { apiKeyId?: string },
+  ) {
     try {
       this.logger.log(
         `Analysis request: ${analyzeDto.query.substring(0, 50)}...`,
       );
+
+      // Get request metadata
+      const ipAddress =
+        (req.headers["x-forwarded-for"] as string)?.split(",")[0]?.trim() ||
+        (req.socket.remoteAddress as string);
+      const userAgent = req.headers["user-agent"] as string;
+
       const result = await this.geospatialService.analyzeQuery(
         analyzeDto.query,
+        {
+          apiKeyId: req.apiKeyId,
+          ipAddress,
+          userAgent,
+        },
       );
       return result;
     } catch (error) {
@@ -197,5 +220,53 @@ export class GeospatialController {
       mcpMode,
       timestamp: new Date().toISOString(),
     };
+  }
+
+  @Get("analytics")
+  @ApiOperation({
+    summary: "Get API analytics",
+    description:
+      "Retrieve usage statistics and analytics for the API. Shows total requests, success rate, avg response time, and cost estimates. Requires API key authentication.",
+  })
+  @ApiQuery({
+    name: "days",
+    required: false,
+    type: Number,
+    description: "Number of days to include in analytics (default: 7)",
+    example: 7,
+  })
+  @ApiResponse({
+    status: 200,
+    description: "Analytics retrieved successfully",
+    schema: {
+      type: "object",
+      properties: {
+        period: { type: "string", example: "Last 7 days" },
+        totalRequests: { type: "number", example: 1250 },
+        successfulRequests: { type: "number", example: 1180 },
+        failedRequests: { type: "number", example: 70 },
+        successRate: { type: "string", example: "94.40" },
+        avgResponseTime: { type: "number", example: 3450 },
+        totalCost: { type: "string", example: "0.1234" },
+        totalTokens: { type: "number", example: 245000 },
+      },
+    },
+  })
+  @ApiResponse({ status: 401, description: "Unauthorized - invalid API key" })
+  async getAnalytics(@Query("days") days?: number) {
+    try {
+      const daysNum = days && !isNaN(days) ? parseInt(days.toString(), 10) : 7;
+      const analytics = await this.databaseService.getAnalytics(daysNum);
+      return analytics;
+    } catch (error) {
+      this.logger.error(`Analytics failed: ${error.message}`);
+      throw new HttpException(
+        {
+          success: false,
+          error: "Failed to retrieve analytics",
+        },
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 }

@@ -1,0 +1,1895 @@
+
+> axion-backend@1.0.0 start:dev
+> nest start --watch
+
+[2J[3J[H[[90m1:55:51 PM[0m] Starting compilation in watch mode...
+
+[[90m1:55:54 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +11ms[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[ApiKeyGuard] [39m[32m✅ Loaded 2 valid API keys[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mGeospatialModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[Bootstrap] [39m[32m✅ CORS enabled for origins: http://localhost:3000, http://localhost:3001[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mGeospatialController {/api/geospatial}:[39m[38;5;3m +12ms[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/geospatial/analyze, POST} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/geospatial/health, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m🔄 Initializing Geospatial Service...[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m📡 MCP Mode: REMOTE[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m📡 Connecting to remote MCP at: http://localhost:3000[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m✅ Remote MCP health check passed: healthy[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m📦 Available tools: 6[39m
+[SSE Client] Connected to remote MCP server
+[SSE Client] Session established: ee00dbc2-2910-4174-b7fc-ca050d9fcf3e
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m✅ Remote MCP Server connected successfully[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m📋 Available MCP tools (6): axion_data, axion_system, axion_map, axion_process, axion_export, axion_classification[39m
+[32m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +1ms[39m
+[31m[Nest] 43092  - [39m01/27/2026, 1:55:56 PM [31m  ERROR[39m [38;5;3m[NestApplication] [39m[31mError: listen EADDRINUSE: address already in use :::3001[39m[38;5;3m +1ms[39m
+node:net:1940
+    const ex = new UVExceptionWithHostPort(err, 'listen', address, port);
+               ^
+
+Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at ExpressAdapter.listen (C:\Users\asus\Desktop\axion-backend\node_modules\@nestjs\platform-express\adapters\express-adapter.js:95:32)
+    at C:\Users\asus\Desktop\axion-backend\node_modules\@nestjs\core\nest-application.js:183:30
+    at new Promise (<anonymous>)
+    at NestApplication.listen (C:\Users\asus\Desktop\axion-backend\node_modules\@nestjs\core\nest-application.js:173:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async bootstrap (C:\Users\asus\Desktop\axion-backend\src\main.ts:71:3) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 3001
+}
+
+Node.js v22.17.1
+[2J[3J[H[[90m2:02:09 PM[0m] File change detected. Starting incremental compilation...
+
+[[90m2:02:09 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +11ms[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[ApiKeyGuard] [39m[32m✅ Loaded 2 valid API keys[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mGeospatialModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[Bootstrap] [39m[32m✅ CORS enabled for origins: http://localhost:3000, http://localhost:3001[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mGeospatialController {/api/geospatial}:[39m[38;5;3m +12ms[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/geospatial/analyze, POST} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/geospatial/health, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m🔄 Initializing Geospatial Service...[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m📡 MCP Mode: REMOTE[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m📡 Connecting to remote MCP at: http://localhost:3000[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m✅ Remote MCP health check passed: healthy[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m📦 Available tools: 6[39m
+[SSE Client] Connected to remote MCP server
+[SSE Client] Session established: b7191316-afcd-4a7f-b2e7-b835f57332a6
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m✅ Remote MCP Server connected successfully[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[GeospatialService] [39m[32m📋 Available MCP tools (6): axion_data, axion_system, axion_map, axion_process, axion_export, axion_classification[39m
+[32m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +1ms[39m
+[31m[Nest] 36636  - [39m01/27/2026, 2:02:11 PM [31m  ERROR[39m [38;5;3m[NestApplication] [39m[31mError: listen EADDRINUSE: address already in use :::3001[39m[38;5;3m +2ms[39m
+node:net:1940
+    const ex = new UVExceptionWithHostPort(err, 'listen', address, port);
+               ^
+
+Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at ExpressAdapter.listen (C:\Users\asus\Desktop\axion-backend\node_modules\@nestjs\platform-express\adapters\express-adapter.js:95:32)
+    at C:\Users\asus\Desktop\axion-backend\node_modules\@nestjs\core\nest-application.js:183:30
+    at new Promise (<anonymous>)
+    at NestApplication.listen (C:\Users\asus\Desktop\axion-backend\node_modules\@nestjs\core\nest-application.js:173:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async bootstrap (C:\Users\asus\Desktop\axion-backend\src\main.ts:71:3) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 3001
+}
+
+Node.js v22.17.1
+[2J[3J[H[[90m2:06:58 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m2[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m2[0m import { PrismaClient } from '@prisma/client';
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m17[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m17[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m27[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m27[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m50[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m50[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m64[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m64[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m82[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m82[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m85[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m85[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m88[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m88[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m91[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m91[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m132[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m132[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m153[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m153[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m159[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m159[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:06:58 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:06:59 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:06:59 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:07:37 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:07:38 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:07:38 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:07:38 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:07:51 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:07:52 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:07:54 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:07:54 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:08:14 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:08:15 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:08:15 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:08:16 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:09:11 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m263[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'trackUsageAsync' does not exist on type 'GeospatialService'.
+
+[7m263[0m       await this.trackUsageAsync({
+[7m   [0m [91m                 ~~~~~~~~~~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m290[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'trackUsageAsync' does not exist on type 'GeospatialService'.
+
+[7m290[0m       await this.trackUsageAsync({
+[7m   [0m [91m                 ~~~~~~~~~~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m321[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m321[0m       if (result.tool) {
+[7m   [0m [91m                 ~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m322[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m322[0m         toolUsed = result.tool.name;
+[7m   [0m [91m                          ~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m342[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'trackUsageAsync' does not exist on type 'GeospatialService'.
+
+[7m342[0m       await this.trackUsageAsync({
+[7m   [0m [91m                 ~~~~~~~~~~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m369[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'trackUsageAsync' does not exist on type 'GeospatialService'.
+
+[7m369[0m       await this.trackUsageAsync({
+[7m   [0m [91m                 ~~~~~~~~~~~~~~~[0m
+
+[[90m2:09:12 PM[0m] Found 18 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:09:12 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m263[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'trackUsageAsync' does not exist on type 'GeospatialService'.
+
+[7m263[0m       await this.trackUsageAsync({
+[7m   [0m [91m                 ~~~~~~~~~~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m290[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'trackUsageAsync' does not exist on type 'GeospatialService'.
+
+[7m290[0m       await this.trackUsageAsync({
+[7m   [0m [91m                 ~~~~~~~~~~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m321[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m321[0m       if (result.tool) {
+[7m   [0m [91m                 ~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m322[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m322[0m         toolUsed = result.tool.name;
+[7m   [0m [91m                          ~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m344[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'trackUsageAsync' does not exist on type 'GeospatialService'.
+
+[7m344[0m       await this.trackUsageAsync({
+[7m   [0m [91m                 ~~~~~~~~~~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m371[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'trackUsageAsync' does not exist on type 'GeospatialService'.
+
+[7m371[0m       await this.trackUsageAsync({
+[7m   [0m [91m                 ~~~~~~~~~~~~~~~[0m
+
+[[90m2:09:13 PM[0m] Found 18 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:09:25 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m321[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m321[0m       if (result.tool) {
+[7m   [0m [91m                 ~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m322[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m322[0m         toolUsed = result.tool.name;
+[7m   [0m [91m                          ~~~~[0m
+
+[[90m2:09:25 PM[0m] Found 14 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:10:03 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m321[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m321[0m       if (result.tool) {
+[7m   [0m [91m                 ~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m322[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m322[0m         toolUsed = result.tool.name;
+[7m   [0m [91m                          ~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m530[0m:[93m11[0m - [91merror[0m[90m TS2554: [0mExpected 2 arguments, but got 3.
+
+[7m530[0m           toolCall.function.name,
+[7m   [0m [91m          ~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m2:10:03 PM[0m] Found 15 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:10:04 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m321[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m321[0m       if (result.tool) {
+[7m   [0m [91m                 ~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m322[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m322[0m         toolUsed = result.tool.name;
+[7m   [0m [91m                          ~~~~[0m
+
+[[90m2:10:04 PM[0m] Found 14 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:10:05 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m321[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; tool: { name: string; }; } | { success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+  Property 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m321[0m       if (result.tool) {
+[7m   [0m [91m                 ~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m322[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; tool: { name: string; }; } | { success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+  Property 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m322[0m         toolUsed = result.tool.name;
+[7m   [0m [91m                          ~~~~[0m
+
+[[90m2:10:06 PM[0m] Found 14 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:10:14 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m321[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; tool: { name: string; }; } | { success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+  Property 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m321[0m       if (result.tool?.name) {
+[7m   [0m [91m                 ~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m322[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; tool: { name: string; }; } | { success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+  Property 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m322[0m         toolUsed = result.tool.name;
+[7m   [0m [91m                          ~~~~[0m
+
+[[90m2:10:14 PM[0m] Found 14 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:10:15 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m321[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; tool: { name: string; }; } | { success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+  Property 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m321[0m       if (result.tool?.name) {
+[7m   [0m [91m                 ~~~~[0m
+
+[96msrc/geospatial/geospatial.service.ts[0m:[93m322[0m:[93m27[0m - [91merror[0m[90m TS2339: [0mProperty 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; tool: { name: string; }; } | { success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+  Property 'tool' does not exist on type '{ success: boolean; response: any; data: any; visualizationUrl: any; mapUrl: any; mcpMode: "remote" | "local"; }'.
+
+[7m322[0m         toolUsed = result.tool.name;
+[7m   [0m [91m                          ~~~~[0m
+
+[[90m2:10:15 PM[0m] Found 14 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:10:28 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:10:29 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:10:48 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:10:48 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:10:49 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:10:49 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:10:53 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:10:53 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:10:53 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:10:54 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:11:06 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:11:07 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:11:38 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:11:38 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:11:38 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:11:39 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:11:51 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:11:51 PM[0m] Found 12 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:11:52 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m25[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m25[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m35[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m35[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m58[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m58[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m72[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m72[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m90[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m90[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m93[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m93[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m96[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m96[0m         this.apiUsage.count({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m99[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m99[0m         this.apiUsage.findMany({
+[7m  [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m146[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m146[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m167[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m167[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m173[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m173[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[[90m2:11:52 PM[0m] Found 12 errors. Watching for file changes.
+
