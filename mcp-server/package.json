@@ -1,0 +1,33 @@
+{
+  "name": "axion-mcp-server",
+  "version": "1.0.0",
+  "description": "Standalone MCP server for Axion geospatial analysis",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "start:dev": "tsx watch src/server.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "mcp",
+    "geospatial",
+    "satellite",
+    "stac"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.3",
+    "axios": "^1.6.5",
+    "express": "^4.18.2",
+    "zod": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,191 @@
+# ========================================
+# AXION BACKEND - Docker Compose
+# ========================================
+# For local development and testing with Docker
+#
+# Usage:
+#   docker-compose up -d          # Start all services
+#   docker-compose logs -f        # View logs
+#   docker-compose down           # Stop all services
+#   docker-compose down -v        # Stop and remove volumes
+
+version: "3.8"
+
+services:
+  # ========================================
+  # NestJS Backend (Main API)
+  # ========================================
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: axion-backend
+    ports:
+      - "3001:3001"
+    environment:
+      # Server
+      NODE_ENV: production
+      PORT: 3001
+      APP_URL: http://localhost:3001
+
+      # OpenRouter API
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
+      OPENROUTER_MODEL: x-ai/grok-4.1-fast
+
+      # MCP Configuration (points to MCP service)
+      MCP_MODE: remote
+      MCP_REMOTE_URL: http://mcp-server:3000
+      MCP_API_KEY: docker-compose-key-12345
+
+      # Database
+      DATABASE_URL: ${DATABASE_URL}
+      DATA_RETENTION_DAYS: 30
+
+      # Security
+      API_KEYS: dev-key-123,docker-key-456
+      ALLOWED_ORIGINS: http://localhost:3000,http://localhost:3001
+
+      # Monitoring
+      SENTRY_DSN: ${SENTRY_DSN:-}
+      SENTRY_DEV_ENABLED: false
+      LOG_LEVEL: info
+
+      # Redis (optional - comment out to use in-memory cache)
+      # UPSTASH_REDIS_URL: ${UPSTASH_REDIS_URL:-}
+      # UPSTASH_REDIS_TOKEN: ${UPSTASH_REDIS_TOKEN:-}
+
+    volumes:
+      # Mount logs directory for persistence
+      - ./logs:/app/logs
+
+    depends_on:
+      - mcp-server
+
+    networks:
+      - axion-network
+
+    restart: unless-stopped
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:3001/api/geospatial/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # ========================================
+  # MCP Server (Separate Service)
+  # ========================================
+  # NOTE: This requires the standalone MCP server package
+  # Uncomment when ready to use separate deployment mode
+
+  mcp-server:
+    build:
+      context: ./mcp-server
+      dockerfile: Dockerfile
+    container_name: axion-mcp
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      MCP_API_KEY: docker-compose-key-12345
+      LOG_LEVEL: info
+
+    networks:
+      - axion-network
+
+    restart: unless-stopped
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--quiet",
+          "--tries=1",
+          "--spider",
+          "http://localhost:3000/health",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  # ========================================
+  # Redis (Optional - for caching)
+  # ========================================
+  # Uncomment if you want to test with local Redis instead of Upstash
+
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: axion-redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+  #   networks:
+  #     - axion-network
+  #   restart: unless-stopped
+  #   command: redis-server --appendonly yes
+  #   healthcheck:
+  #     test: ["CMD", "redis-cli", "ping"]
+  #     interval: 10s
+  #     timeout: 3s
+  #     retries: 3
+
+  # ========================================
+  # PostgreSQL (Optional - for local DB)
+  # ========================================
+  # Uncomment if you want to test with local PostgreSQL instead of Neon
+
+  # postgres:
+  #   image: postgres:16-alpine
+  #   container_name: axion-postgres
+  #   ports:
+  #     - "5432:5432"
+  #   environment:
+  #     POSTGRES_DB: axion
+  #     POSTGRES_USER: axion_user
+  #     POSTGRES_PASSWORD: axion_password
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+  #   networks:
+  #     - axion-network
+  #   restart: unless-stopped
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U axion_user -d axion"]
+  #     interval: 10s
+  #     timeout: 3s
+  #     retries: 3
+
+# ========================================
+# Networks
+# ========================================
+networks:
+  axion-network:
+    driver: bridge
+    name: axion-network
+
+# ========================================
+# Volumes
+# ========================================
+volumes:
+  # Uncomment if using local Redis
+  # redis-data:
+  #   name: axion-redis-data
+
+  # Uncomment if using local PostgreSQL
+  # postgres-data:
+  #   name: axion-postgres-data
+
+  # Logs volume (optional)
+  logs:
+    name: axion-logs
