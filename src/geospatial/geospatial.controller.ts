@@ -20,6 +20,8 @@ import {
 import { Throttle, SkipThrottle } from "@nestjs/throttler";
 import { GeospatialService } from "./geospatial.service";
 import { DatabaseService } from "../database/database.service";
+import { CacheService } from "../cache/cache.service";
+import { MetricsService } from "../tasks/metrics.service";
 import { AnalyzeDto } from "./dto/analyze.dto";
 import { Public } from "../decorators/public.decorator";
 import { Request } from "express";
@@ -40,6 +42,8 @@ export class GeospatialController {
   constructor(
     private readonly geospatialService: GeospatialService,
     private readonly databaseService: DatabaseService,
+    private readonly cacheService: CacheService,
+    private readonly metricsService: MetricsService,
   ) {}
 
   @Post("analyze")
@@ -256,7 +260,22 @@ export class GeospatialController {
   async getAnalytics(@Query("days") days?: number) {
     try {
       const daysNum = days && !isNaN(days) ? parseInt(days.toString(), 10) : 7;
+
+      // Check cache first
+      const cached = await this.cacheService.getCachedAnalytics(daysNum);
+      if (cached) {
+        this.logger.debug(`Returning cached analytics for ${daysNum} days`);
+        return cached;
+      }
+
+      // Fetch from database
       const analytics = await this.databaseService.getAnalytics(daysNum);
+
+      // Cache the result (fire-and-forget)
+      this.cacheService.cacheAnalytics(daysNum, analytics).catch((error) => {
+        this.logger.warn(`Failed to cache analytics: ${error.message}`);
+      });
+
       return analytics;
     } catch (error) {
       this.logger.error(`Analytics failed: ${error.message}`);
@@ -264,6 +283,62 @@ export class GeospatialController {
         {
           success: false,
           error: "Failed to retrieve analytics",
+        },
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
+  @Get("metrics")
+  @ApiOperation({
+    summary: "Get system health metrics",
+    description:
+      "Retrieve detailed system health metrics including requests, success rates, response times, and costs over the last 24 hours. Requires API key authentication.",
+  })
+  @ApiResponse({
+    status: 200,
+    description: "Metrics retrieved successfully",
+    schema: {
+      type: "object",
+      properties: {
+        period: { type: "string", example: "Last 24 hours" },
+        totalRequests: { type: "number", example: 500 },
+        successfulRequests: { type: "number", example: 480 },
+        failedRequests: { type: "number", example: 20 },
+        successRate: { type: "string", example: "96.00" },
+        avgResponseTime: { type: "number", example: 3200 },
+        totalCost: { type: "string", example: "0.0456" },
+        mcpConnected: { type: "boolean", example: true },
+        mcpMode: { type: "string", example: "remote" },
+        timestamp: { type: "string", example: "2026-01-27T15:30:00.000Z" },
+      },
+    },
+  })
+  @ApiResponse({ status: 401, description: "Unauthorized - invalid API key" })
+  async getMetrics() {
+    try {
+      // Check cache first
+      const cached = await this.cacheService.getCachedMetrics();
+      if (cached) {
+        this.logger.debug("Returning cached metrics");
+        return cached;
+      }
+
+      // Fetch from database
+      const metrics = await this.metricsService.getHealthMetrics();
+
+      // Cache the result (fire-and-forget)
+      this.cacheService.cacheMetrics(metrics).catch((error) => {
+        this.logger.warn(`Failed to cache metrics: ${error.message}`);
+      });
+
+      return metrics;
+    } catch (error) {
+      this.logger.error(`Metrics failed: ${error.message}`);
+      throw new HttpException(
+        {
+          success: false,
+          error: "Failed to retrieve metrics",
         },
         HttpStatus.INTERNAL_SERVER_ERROR,
       );

@@ -3,11 +3,50 @@ import { AppModule } from "./app.module";
 import { ConfigService } from "@nestjs/config";
 import { ValidationPipe, Logger } from "@nestjs/common";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { initializeSentry } from "./monitoring/sentry.config";
+import compression from "compression";
+import helmet from "helmet";
 
 async function bootstrap() {
+  // Initialize Sentry first (before app creation)
+  initializeSentry();
+
   const logger = new Logger("Bootstrap");
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
+
+  // Security: Helmet middleware (must be before other middleware)
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          defaultSrc: ["'self'"],
+          styleSrc: ["'self'", "'unsafe-inline'"], // For Swagger
+          scriptSrc: ["'self'", "'unsafe-inline'"], // For Swagger
+          imgSrc: ["'self'", "data:", "https:"], // For Swagger
+        },
+      },
+      crossOriginEmbedderPolicy: false, // For Swagger
+    }),
+  );
+
+  logger.log("✅ Helmet security headers enabled");
+
+  // Compression middleware (for responses > 1KB)
+  app.use(
+    compression({
+      filter: (req, res) => {
+        if (req.headers["x-no-compression"]) {
+          return false;
+        }
+        return compression.filter(req, res);
+      },
+      threshold: 1024, // Only compress responses larger than 1KB
+      level: 6, // Compression level (1-9, 6 is default balance)
+    }),
+  );
+
+  logger.log("✅ HTTP compression enabled");
 
   // Global validation pipe
   app.useGlobalPipes(

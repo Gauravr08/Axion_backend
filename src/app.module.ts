@@ -1,10 +1,14 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
-import { APP_GUARD } from "@nestjs/core";
+import { APP_GUARD, APP_INTERCEPTOR } from "@nestjs/core";
 import { ThrottlerModule, ThrottlerGuard } from "@nestjs/throttler";
 import { GeospatialModule } from "./geospatial/geospatial.module";
 import { DatabaseModule } from "./database/database.module";
+import { LoggingModule } from "./logging/logging.module";
+import { TasksModule } from "./tasks/tasks.module";
+import { CachingModule } from "./cache/cache.module";
 import { ApiKeyGuard } from "./guards/api-key.guard";
+import { CacheControlInterceptor } from "./interceptors/cache-control.interceptor";
 import { configValidationSchema } from "./config/configuration";
 
 @Module({
@@ -34,7 +38,10 @@ import { configValidationSchema } from "./config/configuration";
       },
     ]),
 
+    LoggingModule,
     DatabaseModule,
+    CachingModule,
+    TasksModule,
     GeospatialModule,
   ],
   providers: [
@@ -47,6 +54,11 @@ import { configValidationSchema } from "./config/configuration";
     {
       provide: APP_GUARD,
       useClass: ThrottlerGuard,
+    },
+    // Global cache control interceptor
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: CacheControlInterceptor,
     },
   ],
 })

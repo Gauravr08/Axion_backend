@@ -9,6 +9,7 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { SSEClientTransport } from "../mcp/lib/sse-client-transport";
 import { DatabaseService } from "../database/database.service";
+import { CacheService } from "../cache/cache.service";
 import axios, { AxiosInstance } from "axios";
 import axiosRetry from "axios-retry";
 import * as path from "path";
@@ -41,6 +42,7 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
   constructor(
     private configService: ConfigService,
     private databaseService: DatabaseService,
+    private cacheService: CacheService,
   ) {
     this.openRouterApiKey =
       this.configService.get<string>("OPENROUTER_API_KEY");
@@ -412,6 +414,24 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
 
   private async performAnalysis(query: string, requestId: string) {
     try {
+      // Check cache first
+      const cachedResult = await this.cacheService.getCachedOpenRouterResponse(
+        query,
+        this.openRouterModel,
+      );
+
+      if (cachedResult) {
+        this.logger.log({
+          message: "Returning cached result",
+          requestId,
+          fromCache: true,
+        });
+        return {
+          ...cachedResult,
+          fromCache: true,
+        };
+      }
+
       // Get available tools from MCP server
       const tools = await this.mcpClient.listTools();
 
@@ -524,15 +544,28 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
           },
         );
 
-        return this.formatResponse(
+        const formattedResponse = this.formatResponse(
           finalResponse.data.choices[0].message,
           toolResult,
           toolCall.function.name,
         );
+
+        // Cache the result (fire-and-forget)
+        this.cacheService
+          .cacheOpenRouterResponse(
+            query,
+            this.openRouterModel,
+            formattedResponse,
+          )
+          .catch((error) => {
+            this.logger.warn(`Failed to cache result: ${error.message}`);
+          });
+
+        return formattedResponse;
       }
 
       // No tool calls - return direct response
-      return {
+      const directResponse = {
         success: true,
         response: message.content,
         data: null,
@@ -541,6 +574,15 @@ export class GeospatialService implements OnModuleInit, OnModuleDestroy {
         mcpMode: this.currentMode,
         tool: undefined,
       };
+
+      // Cache the direct response (fire-and-forget)
+      this.cacheService
+        .cacheOpenRouterResponse(query, this.openRouterModel, directResponse)
+        .catch((error) => {
+          this.logger.warn(`Failed to cache result: ${error.message}`);
+        });
+
+      return directResponse;
     } catch (error) {
       throw this.handleAnalysisError(error);
     }

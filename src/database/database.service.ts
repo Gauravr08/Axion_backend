@@ -5,6 +5,8 @@ import {
   Logger,
 } from "@nestjs/common";
 import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { Pool } from "pg";
 
 @Injectable()
 export class DatabaseService
@@ -14,10 +16,17 @@ export class DatabaseService
   private readonly logger = new Logger(DatabaseService.name);
 
   constructor() {
-    super({
-      log: ["error", "warn"],
-      errorFormat: "minimal",
-    });
+    const databaseUrl = process.env.DATABASE_URL;
+    const pool = databaseUrl
+      ? new Pool({ connectionString: databaseUrl })
+      : null;
+    const adapter = pool ? new PrismaPg(pool) : undefined;
+
+    super(
+      adapter
+        ? { adapter, log: ["error", "warn"], errorFormat: "minimal" }
+        : { log: ["error", "warn"], errorFormat: "minimal" },
+    );
   }
 
   async onModuleInit() {
@@ -71,6 +80,13 @@ export class DatabaseService
     try {
       return await this.apiKey.findUnique({
         where: { key },
+        select: {
+          id: true,
+          key: true,
+          name: true,
+          enabled: true,
+          createdAt: true,
+        },
       });
     } catch (error) {
       this.logger.error("Failed to get API key:", error);
