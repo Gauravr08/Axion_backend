@@ -15186,3 +15186,266 @@ Node.js v22.17.1
 
 [[90m2:25:35 PM[0m] Found 25 errors. Watching for file changes.
 
+[2J[3J[H[[90m3:19:18 PM[0m] File change detected. Starting incremental compilation...
+
+[96mmcp-server/src/server.ts[0m:[93m10[0m:[93m27[0m - [91merror[0m[90m TS2307: [0mCannot find module './lib/registry.js' or its corresponding type declarations.
+
+[7m10[0m import * as registry from './lib/registry.js';
+[7m  [0m [91m                          ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m34[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m34[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m44[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m44[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m67[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m67[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m81[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m81[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m106[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m106[0m         this.apiUsage.count({
+[7m   [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m109[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m109[0m         this.apiUsage.count({
+[7m   [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m112[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m112[0m         this.apiUsage.count({
+[7m   [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m115[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m115[0m         this.apiUsage.findMany({
+[7m   [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m162[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m162[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m183[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m183[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m189[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m189[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[96msrc/tasks/data-retention.service.ts[0m:[93m27[0m:[93m49[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m27[0m       const result = await this.databaseService.apiUsage.deleteMany({
+[7m  [0m [91m                                                ~~~~~~~~[0m
+
+[96msrc/tasks/data-retention.service.ts[0m:[93m40[0m:[93m56[0m - [91merror[0m[90m TS2339: [0mProperty 'systemMetrics' does not exist on type 'DatabaseService'.
+
+[7m40[0m       const metricsResult = await this.databaseService.systemMetrics.deleteMany(
+[7m  [0m [91m                                                       ~~~~~~~~~~~~~[0m
+
+[96msrc/tasks/data-retention.service.ts[0m:[93m76[0m:[93m49[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m76[0m       const result = await this.databaseService.apiUsage.deleteMany({
+[7m  [0m [91m                                                ~~~~~~~~[0m
+
+[96msrc/tasks/data-retention.service.ts[0m:[93m102[0m:[93m48[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m102[0m       const count = await this.databaseService.apiUsage.count({
+[7m   [0m [91m                                               ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m29[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m29[0m         this.databaseService.apiUsage.count({
+[7m  [0m [91m                             ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m36[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m36[0m         this.databaseService.apiUsage.count({
+[7m  [0m [91m                             ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m44[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m44[0m         this.databaseService.apiUsage.findMany({
+[7m  [0m [91m                             ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m76[0m:[93m34[0m - [91merror[0m[90m TS2339: [0mProperty 'systemMetrics' does not exist on type 'DatabaseService'.
+
+[7m76[0m       await this.databaseService.systemMetrics.create({
+[7m  [0m [91m                                 ~~~~~~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m106[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m106[0m           this.databaseService.apiUsage.count({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m113[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m113[0m           this.databaseService.apiUsage.count({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m121[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m121[0m           this.databaseService.apiUsage.count({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m129[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m129[0m           this.databaseService.apiUsage.findMany({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m180[0m:[93m50[0m - [91merror[0m[90m TS2339: [0mProperty 'systemMetrics' does not exist on type 'DatabaseService'.
+
+[7m180[0m       const metrics = await this.databaseService.systemMetrics.findMany({
+[7m   [0m [91m                                                 ~~~~~~~~~~~~~[0m
+
+[[90m3:19:22 PM[0m] Found 26 errors. Watching for file changes.
+
+[2J[3J[H[[90m3:19:32 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/database/database.service.ts[0m:[93m7[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"@prisma/client"' has no exported member 'PrismaClient'.
+
+[7m7[0m import { PrismaClient } from "@prisma/client";
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m34[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty '$connect' does not exist on type 'DatabaseService'.
+
+[7m34[0m       await this.$connect();
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m44[0m:[93m16[0m - [91merror[0m[90m TS2339: [0mProperty '$disconnect' does not exist on type 'DatabaseService'.
+
+[7m44[0m     await this.$disconnect();
+[7m  [0m [91m               ~~~~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m67[0m:[93m18[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m67[0m       await this.apiUsage.create({
+[7m  [0m [91m                 ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m81[0m:[93m25[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m81[0m       return await this.apiKey.findUnique({
+[7m  [0m [91m                        ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m106[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m106[0m         this.apiUsage.count({
+[7m   [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m109[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m109[0m         this.apiUsage.count({
+[7m   [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m112[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m112[0m         this.apiUsage.count({
+[7m   [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m115[0m:[93m14[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m115[0m         this.apiUsage.findMany({
+[7m   [0m [91m             ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m162[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m162[0m       const usage = await this.apiUsage.groupBy({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m183[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m183[0m       const existingCount = await this.apiKey.count();
+[7m   [0m [91m                                       ~~~~~~[0m
+
+[96msrc/database/database.service.ts[0m:[93m189[0m:[93m22[0m - [91merror[0m[90m TS2339: [0mProperty 'apiKey' does not exist on type 'DatabaseService'.
+
+[7m189[0m           await this.apiKey.create({
+[7m   [0m [91m                     ~~~~~~[0m
+
+[96msrc/tasks/data-retention.service.ts[0m:[93m27[0m:[93m49[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m27[0m       const result = await this.databaseService.apiUsage.deleteMany({
+[7m  [0m [91m                                                ~~~~~~~~[0m
+
+[96msrc/tasks/data-retention.service.ts[0m:[93m40[0m:[93m56[0m - [91merror[0m[90m TS2339: [0mProperty 'systemMetrics' does not exist on type 'DatabaseService'.
+
+[7m40[0m       const metricsResult = await this.databaseService.systemMetrics.deleteMany(
+[7m  [0m [91m                                                       ~~~~~~~~~~~~~[0m
+
+[96msrc/tasks/data-retention.service.ts[0m:[93m76[0m:[93m49[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m76[0m       const result = await this.databaseService.apiUsage.deleteMany({
+[7m  [0m [91m                                                ~~~~~~~~[0m
+
+[96msrc/tasks/data-retention.service.ts[0m:[93m102[0m:[93m48[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m102[0m       const count = await this.databaseService.apiUsage.count({
+[7m   [0m [91m                                               ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m29[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m29[0m         this.databaseService.apiUsage.count({
+[7m  [0m [91m                             ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m36[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m36[0m         this.databaseService.apiUsage.count({
+[7m  [0m [91m                             ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m44[0m:[93m30[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m44[0m         this.databaseService.apiUsage.findMany({
+[7m  [0m [91m                             ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m76[0m:[93m34[0m - [91merror[0m[90m TS2339: [0mProperty 'systemMetrics' does not exist on type 'DatabaseService'.
+
+[7m76[0m       await this.databaseService.systemMetrics.create({
+[7m  [0m [91m                                 ~~~~~~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m106[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m106[0m           this.databaseService.apiUsage.count({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m113[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m113[0m           this.databaseService.apiUsage.count({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m121[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m121[0m           this.databaseService.apiUsage.count({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m129[0m:[93m32[0m - [91merror[0m[90m TS2339: [0mProperty 'apiUsage' does not exist on type 'DatabaseService'.
+
+[7m129[0m           this.databaseService.apiUsage.findMany({
+[7m   [0m [91m                               ~~~~~~~~[0m
+
+[96msrc/tasks/metrics.service.ts[0m:[93m180[0m:[93m50[0m - [91merror[0m[90m TS2339: [0mProperty 'systemMetrics' does not exist on type 'DatabaseService'.
+
+[7m180[0m       const metrics = await this.databaseService.systemMetrics.findMany({
+[7m   [0m [91m                                                 ~~~~~~~~~~~~~[0m
+
+[[90m3:19:34 PM[0m] Found 25 errors. Watching for file changes.
+
