@@ -68,15 +68,11 @@ export class MetricsService {
         0,
       );
 
-      // Get MCP connection status
-      const mcpConnected = this.geospatialService.isMcpConnected();
-      const mcpMode = this.geospatialService.getMcpMode();
-
       // Store metrics
       await this.databaseService.systemMetrics.create({
         data: {
-          mcpMode,
-          mcpConnected,
+          mcpMode: "custom",
+          mcpConnected: true,
           requestCount: totalRequests,
           errorCount,
           avgResponseTime: Math.round(avgResponseTime),
@@ -159,8 +155,7 @@ export class MetricsService {
             : "0.00",
         avgResponseTime: Math.round(avgResponseTime),
         totalCost: totalCost.toFixed(4),
-        mcpConnected: this.geospatialService.isMcpConnected(),
-        mcpMode: this.geospatialService.getMcpMode(),
+        processingMode: "custom",
         timestamp: now.toISOString(),
       };
     } catch (error) {

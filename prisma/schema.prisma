@@ -31,6 +31,9 @@ model ApiUsage {
   apiKeyId      String?
   endpoint      String
   query         String?  @db.Text
+  message       String?  // Log message (e.g., "New analysis request")
+  projectType   String?  // agricultural, commercial, residential, industrial
+  bbox          String?  // Bounding box as JSON string
   mcpMode       String?  // 'remote' or 'local'
   toolUsed      String?
   responseTime  Int?     // milliseconds
@@ -46,10 +49,16 @@ model ApiUsage {
   // Relations
   apiKey        ApiKey?  @relation(fields: [apiKeyId], references: [id], onDelete: SetNull)
 
+  // Optimized composite indexes for common queries
   @@index([apiKeyId])
   @@index([endpoint])
   @@index([createdAt])
   @@index([success])
+  @@index([endpoint, createdAt]) // Time-series queries per endpoint
+  @@index([apiKeyId, createdAt]) // Per-key analytics
+  @@index([success, createdAt])  // Error rate over time
+  @@index([toolUsed])            // Tool popularity metrics
+  @@index([projectType])         // Project type analytics
   @@map("api_usage")
 }
 

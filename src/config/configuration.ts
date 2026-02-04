@@ -11,19 +11,9 @@ export const configValidationSchema = Joi.object({
   OPENROUTER_API_KEY: Joi.string().required(),
   OPENROUTER_MODEL: Joi.string().required(),
 
-  // MCP Configuration
-  MCP_MODE: Joi.string().valid("remote", "local").required(),
-  MCP_REMOTE_URL: Joi.string().uri().when("MCP_MODE", {
-    is: "remote",
-    then: Joi.required(),
-    otherwise: Joi.optional(),
-  }),
-  MCP_API_KEY: Joi.string().optional(),
-  MCP_SERVER_PATH: Joi.string().when("MCP_MODE", {
-    is: "local",
-    then: Joi.required(),
-    otherwise: Joi.optional(),
-  }),
+  // Satellite Processing Configuration
+  STAC_ENDPOINT: Joi.string().uri().default("https://earth-search.aws.element84.com/v1"),
+  TITILER_ENDPOINT: Joi.string().uri().default("https://titiler.xyz"),
 
   // API Authentication
   API_KEYS: Joi.string()

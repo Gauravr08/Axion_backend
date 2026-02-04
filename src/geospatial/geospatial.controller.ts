@@ -8,6 +8,7 @@ import {
   Logger,
   Req,
   Query,
+  UseGuards,
 } from "@nestjs/common";
 import {
   ApiTags,
@@ -24,6 +25,7 @@ import { CacheService } from "../cache/cache.service";
 import { MetricsService } from "../tasks/metrics.service";
 import { AnalyzeDto } from "./dto/analyze.dto";
 import { Public } from "../decorators/public.decorator";
+import { RateLimitGuard } from "../guards/rate-limit.guard";
 import { Request } from "express";
 import {
   OpenRouterError,
@@ -47,11 +49,12 @@ export class GeospatialController {
   ) {}
 
   @Post("analyze")
+  @UseGuards(RateLimitGuard) // Add rate limiting
   @Throttle({ strict: { limit: 10, ttl: 60000 } }) // 10 requests per minute
   @ApiOperation({
     summary: "Analyze geospatial query",
     description:
-      "Process natural language queries for satellite imagery analysis, vegetation indices (NDVI), urban indices (NDBI), water indices (NDWI), and site suitability assessment. Requires API key authentication.",
+      "Process natural language queries for satellite imagery analysis, vegetation indices (NDVI), urban indices (NDBI), water indices (NDWI), and site suitability assessment. Requires API key authentication. Rate limited to 100 requests per hour per API key.",
   })
   @ApiBody({ type: AnalyzeDto })
   @ApiResponse({
@@ -95,6 +98,8 @@ export class GeospatialController {
     @Req() req: Request & { apiKeyId?: string },
   ) {
     try {
+      const requestId = `req_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      
       this.logger.log(
         `Analysis request: ${analyzeDto.query.substring(0, 50)}...`,
       );
@@ -107,11 +112,7 @@ export class GeospatialController {
 
       const result = await this.geospatialService.analyzeQuery(
         analyzeDto.query,
-        {
-          apiKeyId: req.apiKeyId,
-          ipAddress,
-          userAgent,
-        },
+        requestId,
       );
       return result;
     } catch (error) {
@@ -214,14 +215,11 @@ export class GeospatialController {
     },
   })
   health() {
-    const mcpConnected = this.geospatialService.isMcpConnected();
-    const mcpMode = this.geospatialService.getMcpMode();
-
     return {
       success: true,
-      status: mcpConnected ? "MCP server running" : "MCP server not connected",
-      mcpConnected,
-      mcpMode,
+      status: "Custom satellite processing active",
+      processingMode: "custom",
+      stacEndpoint: "https://earth-search.aws.element84.com/v1",
       timestamp: new Date().toISOString(),
     };
   }

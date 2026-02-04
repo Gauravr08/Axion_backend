@@ -19,5 +19,5 @@
     "noFallthroughCasesInSwitch": false,
     "esModuleInterop": true
   },
-  "exclude": ["node_modules", "dist", "axion-planetary-mcp"]
+  "exclude": ["node_modules", "dist"]
 }
